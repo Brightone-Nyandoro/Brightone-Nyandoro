@@ -21,7 +21,7 @@ class WelcomePage extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: size.height * 0.05),
                 Image.asset(
-                  "assets/images/cut_h.PNG",
+                  "assets/images/cut_launcher.jpg",
                   height: size.height * 0.35,
                 ),
                 SizedBox(height: size.height * 0.05),
