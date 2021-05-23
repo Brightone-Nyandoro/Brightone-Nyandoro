@@ -141,41 +141,41 @@ class _HomeScreenState extends State<HomeScreen> {
                       spacing: 8.0,
                       children: [
                         FilterChip(
-                          label: Text('Campground'),
-                          onSelected: (val) => applicationBloc.togglePlaceType(
-                              'campground', val),
-                          selected: applicationBloc.placeType == 'campground',
+                          label: Text('Adminstration Block'),
+                          onSelected: (val) =>
+                              applicationBloc.togglePlaceType('cutadmin', val),
+                          selected: applicationBloc.placeType == 'cutadmin',
                           selectedColor: Colors.blue,
                         ),
                         FilterChip(
-                            label: Text('Locksmith'),
-                            onSelected: (val) => applicationBloc
-                                .togglePlaceType('locksmith', val),
-                            selected: applicationBloc.placeType == 'locksmith',
-                            selectedColor: Colors.blue),
-                        FilterChip(
-                            label: Text('Pharmacy'),
-                            onSelected: (val) => applicationBloc
-                                .togglePlaceType('pharmacy', val),
-                            selected: applicationBloc.placeType == 'pharmacy',
-                            selectedColor: Colors.blue),
-                        FilterChip(
-                            label: Text('Pet Store'),
-                            onSelected: (val) => applicationBloc
-                                .togglePlaceType('pet_store', val),
-                            selected: applicationBloc.placeType == 'pet_store',
-                            selectedColor: Colors.blue),
-                        FilterChip(
-                            label: Text('Lawyer'),
+                            label: Text('Registry'),
                             onSelected: (val) =>
-                                applicationBloc.togglePlaceType('lawyer', val),
-                            selected: applicationBloc.placeType == 'lawyer',
+                                applicationBloc.togglePlaceType('cutreg', val),
+                            selected: applicationBloc.placeType == 'cutreg',
                             selectedColor: Colors.blue),
                         FilterChip(
-                            label: Text('Bank'),
+                            label: Text('Library'),
                             onSelected: (val) =>
-                                applicationBloc.togglePlaceType('bank', val),
-                            selected: applicationBloc.placeType == 'bank',
+                                applicationBloc.togglePlaceType('cutlib', val),
+                            selected: applicationBloc.placeType == 'cutlib',
+                            selectedColor: Colors.blue),
+                        FilterChip(
+                            label: Text('ZB Bank'),
+                            onSelected: (val) =>
+                                applicationBloc.togglePlaceType('cutzb', val),
+                            selected: applicationBloc.placeType == 'cutzb',
+                            selectedColor: Colors.blue),
+                        FilterChip(
+                            label: Text('Linux lab'),
+                            onSelected: (val) => applicationBloc
+                                .togglePlaceType('cutlinux', val),
+                            selected: applicationBloc.placeType == 'cutlinux',
+                            selectedColor: Colors.blue),
+                        FilterChip(
+                            label: Text('Canteen'),
+                            onSelected: (val) =>
+                                applicationBloc.togglePlaceType('canteen', val),
+                            selected: applicationBloc.placeType == 'canteen',
                             selectedColor: Colors.blue),
                       ],
                     ),
