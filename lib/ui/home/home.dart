@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
 
   static final CameraPosition _kInitialPosition =
       CameraPosition(target: _kMapCenter, zoom: 11.0, tilt: 0, bearing: 0);
-  GoogleMapController _controller;
+  late GoogleMapController _controller;
   Set<Marker> _markers = {};
 
   static String keyword = "Library";

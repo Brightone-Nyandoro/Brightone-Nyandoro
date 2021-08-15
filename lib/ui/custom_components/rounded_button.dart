@@ -5,12 +5,13 @@ import '../../constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
-  final Color color, textColor;
+  final VoidCallback press;
+  final Color? color, textColor;
+
   const RoundedButton({
-    Key key,
-    this.text,
-    this.press,
+    Key? key,
+    required this.text,
+    required this.press,
     this.color = kPrimaryColor,
     this.textColor = Colors.white,
   }) : super(key: key);
@@ -23,15 +24,11 @@ class RoundedButton extends StatelessWidget {
       width: size.width * 0.8,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
-        child: FlatButton(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          color: color,
+        child: TextButton(
+          style: TextButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 20), primary: textColor),
           onPressed: press,
-          child: Text(
-            text,
-            style:
-                GoogleFonts.quicksand(textStyle: TextStyle(color: textColor)),
-          ),
+          child: Text(text),
         ),
       ),
     );

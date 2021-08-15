@@ -9,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -17,8 +17,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Completer<GoogleMapController> _mapController = Completer();
-  StreamSubscription locationSubscription;
-  StreamSubscription boundsSubscription;
+  late StreamSubscription locationSubscription;
+  late StreamSubscription boundsSubscription;
   final _locationController = TextEditingController();
 
   @override
@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     //Listen for selected Location
     locationSubscription =
-        applicationBloc.selectedLocation.stream.listen((place) {
+        applicationBloc.selectedLocation!.stream.listen((place) {
       if (place != null) {
         _locationController.text = place.name;
         _goToPlace(place);
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _locationController.text = "";
     });
 
-    applicationBloc.bounds.stream.listen((bounds) async {
+    applicationBloc.bounds!.stream.listen((bounds) async {
       final GoogleMapController controller = await _mapController.future;
       controller.animateCamera(CameraUpdate.newLatLngBounds(bounds, 50));
     });
@@ -86,8 +86,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           myLocationEnabled: true,
                           initialCameraPosition: CameraPosition(
                             target: LatLng(
-                                applicationBloc.currentLocation.latitude,
-                                applicationBloc.currentLocation.longitude),
+                                applicationBloc.currentLocation!.latitude,
+                                applicationBloc.currentLocation!.longitude),
                             zoom: 14,
                           ),
                           onMapCreated: (GoogleMapController controller) {
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       if (applicationBloc.searchResults != null &&
-                          applicationBloc.searchResults.length != 0)
+                          applicationBloc.searchResults!.length != 0)
                         Container(
                             height: 300.0,
                             width: double.infinity,
@@ -108,18 +108,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         Container(
                           height: 300.0,
                           child: ListView.builder(
-                              itemCount: applicationBloc.searchResults.length,
+                              itemCount: applicationBloc.searchResults!.length,
                               itemBuilder: (context, index) {
                                 return ListTile(
                                   title: Text(
                                     applicationBloc
-                                        .searchResults[index].description,
+                                        .searchResults![index].description,
                                     style: TextStyle(color: Colors.white),
                                   ),
                                   onTap: () {
                                     applicationBloc.setSelectedLocation(
                                         applicationBloc
-                                            .searchResults[index].placeId);
+                                            .searchResults![index].placeId);
                                   },
                                 );
                               }),
@@ -142,9 +142,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         FilterChip(
                           label: Text('Adminstration Block'),
-                          onSelected: (val) =>
-                              applicationBloc.togglePlaceType('cutadmin', val),
-                          selected: applicationBloc.placeType == 'cutadmin',
+                          onSelected: (val) => applicationBloc.togglePlaceType(
+                              'Chinhoyi University Administration Block', val),
+                          selected: applicationBloc.placeType ==
+                              'Chinhoyi University Administration Block',
                           selectedColor: Colors.blue,
                         ),
                         FilterChip(

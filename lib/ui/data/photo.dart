@@ -1,10 +1,14 @@
 class Photo {
   int height;
   int width;
-  List<String> htmlAttributions;
-  String photoReference;
+  List<String>? htmlAttributions;
+  String? photoReference;
 
-  Photo({this.height, this.width, this.htmlAttributions, this.photoReference});
+  Photo(
+      {required this.height,
+      required this.width,
+      this.htmlAttributions,
+      this.photoReference});
 
   factory Photo.fromJson(Map<String, dynamic> json) {
     return Photo(

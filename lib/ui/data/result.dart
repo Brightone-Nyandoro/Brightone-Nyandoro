@@ -2,25 +2,25 @@ import 'geometry.dart';
 import 'photo.dart';
 
 class Result {
-  final Geometry geometry;
-  final String icon;
-  final String id;
-  final String name;
-  final List<Photo> photos;
+  final Geometry? geometry;
+  final String? icon;
+  final String? id;
+  final String? name;
+  final List<Photo>? photos;
   final String placeId;
-  final double rating;
-  final String reference;
-  final String scope;
-  final List<String> types;
-  final int userRatingsTotal;
-  final String vicinity;
+  final double? rating;
+  final String? reference;
+  final String? scope;
+  final List<String>? types;
+  final int? userRatingsTotal;
+  final String? vicinity;
 
   Result(
       {this.geometry,
       this.icon,
       this.id,
       this.name,
-      this.placeId,
+      required this.placeId,
       this.reference,
       this.scope,
       this.vicinity,

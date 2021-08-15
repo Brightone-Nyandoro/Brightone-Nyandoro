@@ -1,14 +1,18 @@
 class Error {
   final String errorMessage;
-  final List<dynamic> htmlAttributions;
-  final List<dynamic> results;
-  final String status;
+  final List<dynamic>? htmlAttributions;
+  final List<dynamic>? results;
+  final String? status;
 
   String getErrorMessage() {
     return errorMessage;
   }
 
-  Error({this.errorMessage, this.htmlAttributions, this.results, this.status});
+  Error(
+      {required this.errorMessage,
+      required this.htmlAttributions,
+      this.results,
+      this.status});
 
   factory Error.fromJson(Map<String, dynamic> json) {
     return Error(

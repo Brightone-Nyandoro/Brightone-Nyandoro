@@ -28,10 +28,10 @@ class _PlacesSearchMapSample extends State<PlacesSearchMapSample> {
       "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
 
   List<Marker> markers = <Marker>[];
-  Error error;
-  List<Result> places;
+  late Error error;
+  late List<Result> places;
   bool searching = true;
-  String keyword;
+  late String keyword;
 
   Completer<GoogleMapController> _controller = Completer();
 
@@ -72,9 +72,9 @@ class _PlacesSearchMapSample extends State<PlacesSearchMapSample> {
     });
     String url =
         '$baseUrl?key=$_API_KEY&location=$latitude,$longitude&radius=10000&keyword=${widget.keyword}';
-    print(url);
-    final response = await http.get(url);
 
+    final response = await http.get(Uri.parse(url));
+    print(response);
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       _handleResponse(data);
@@ -102,8 +102,8 @@ class _PlacesSearchMapSample extends State<PlacesSearchMapSample> {
           markers.add(
             Marker(
               markerId: MarkerId(places[i].placeId),
-              position: LatLng(places[i].geometry.location.lat,
-                  places[i].geometry.location.long),
+              position: LatLng(places[i].geometry!.location.lat,
+                  places[i].geometry!.location.long),
               infoWindow: InfoWindow(
                   title: places[i].name, snippet: places[i].vicinity),
               onTap: () {},

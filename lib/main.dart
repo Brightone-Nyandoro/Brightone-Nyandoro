@@ -1,3 +1,5 @@
+import 'package:cut_school_map/ui/home/main_campus_home.dart';
+import 'package:cut_school_map/ui/home/search_place.dart';
 import 'package:cut_school_map/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,13 +36,28 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: WelcomePage(),
+        routes: {
+          "/home": (ctx) => MainMap(),
+          "/second": (ctx) => Scaffold(
+                body: Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.popAndPushNamed(ctx, "/home");
+                    },
+                    child: Text("another page"),
+                  ),
+                ),
+              ),
+          "/picker-result": (ctx) => SearchPlace(),
+          "/search": (ctx) => SearchPage(),
+        },
       ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect

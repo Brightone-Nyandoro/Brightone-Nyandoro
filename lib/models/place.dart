@@ -3,9 +3,9 @@ import 'package:cut_school_map/models/geometry.dart';
 class Place {
   final Geometry geometry;
   final String name;
-  final String vicinity;
+  final String? vicinity;
 
-  Place({this.geometry, this.name, this.vicinity});
+  Place({required this.geometry, required this.name, this.vicinity});
 
   factory Place.fromJson(Map<String, dynamic> json) {
     return Place(

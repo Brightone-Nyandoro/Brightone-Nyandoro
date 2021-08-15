@@ -1,6 +1,8 @@
 import 'package:cut_school_map/ui/custom_components/rounded_button.dart';
 import 'package:cut_school_map/ui/home/home.dart';
 import 'package:cut_school_map/ui/home/home_screen.dart';
+import 'package:cut_school_map/ui/home/main_campus_home.dart';
+import 'package:cut_school_map/ui/home/sys_map_example.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -33,7 +35,7 @@ class WelcomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return HomeScreen();
+                          return MainMap();
                         },
                       ),
                     );

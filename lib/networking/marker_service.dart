@@ -2,7 +2,7 @@ import 'package:cut_school_map/models/place.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MarkerService {
-  LatLngBounds bounds(Set<Marker> markers) {
+  LatLngBounds? bounds(Set<Marker> markers) {
     if (markers == null || markers.isEmpty) return null;
     return createBounds(markers.map((m) => m.position).toList());
   }
