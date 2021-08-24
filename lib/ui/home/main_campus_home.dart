@@ -38,9 +38,7 @@ class _MainMapState extends State<MainMap> {
     );
     scaffoldKey = GlobalKey<ScaffoldState>();
     controller.listenerMapLongTapping.addListener(() {
-      if (controller.listenerMapLongTapping.value != null) {
-        print(controller.listenerMapLongTapping.value);
-      }
+      if (controller.listenerMapLongTapping.value != null) {}
     });
     controller.listenerMapSingleTapping.addListener(() {
       if (controller.listenerMapSingleTapping.value != null) {
