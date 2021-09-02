@@ -24,7 +24,7 @@ class _MainMapState extends State<MainMap> {
   void initState() {
     super.initState();
     controller = MapController(
-      initMapWithUserPosition: false,
+      initMapWithUserPosition: true,
       initPosition: GeoPoint(
         latitude: -17.3533,
         longitude: 30.2058,
@@ -37,6 +37,7 @@ class _MainMapState extends State<MainMap> {
       // ),
     );
     scaffoldKey = GlobalKey<ScaffoldState>();
+
     controller.listenerMapLongTapping.addListener(() {
       if (controller.listenerMapLongTapping.value != null) {}
     });
@@ -47,7 +48,8 @@ class _MainMapState extends State<MainMap> {
     });
     Future.delayed(Duration(minutes: 5), () async {
       await controller.removeLimitAreaMap();
-      //await controller.disabledTracking();
+      await controller.currentLocation();
+      await controller.enableTracking();
     });
     Future.delayed(Duration(seconds: 5), () async {
       await controller.zoomIn();
