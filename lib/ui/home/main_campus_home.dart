@@ -47,7 +47,7 @@ class _MainMapState extends State<MainMap> {
       }
     });
     Future.delayed(Duration(minutes: 5), () async {
-      await controller.removeLimitAreaMap();
+      //await controller.removeLimitAreaMap();
       await controller.currentLocation();
       await controller.enableTracking();
     });
